@@ -1,25 +1,33 @@
-import React from 'react'
-import './CSS/LoginSignup.css'
+import React from 'react';
+import './CSS/LoginSignup.css';
 
 const LoginSignup = () => {
   return (
-    <div className='loginsignup'>
+    <div className="loginsignup">
       <div className="loginsignup-container">
         <h1>Sign Up</h1>
-        <div className="loginsignup-fields">
-          <input type="text" placeholder='Your Name' />
-          <input type="email" placeholder='email@xyz' />
-          <input type="password" placeholder='Password' />
-        </div>
-        <button>Continue</button>
-        <p className="loginsignup-login">Alredy have an account? <span>Login here</span></p>
-        <div className="loginsignup-agree">
-          <input type="checkbox" name='' id='' />
-          <p>By continuing, I agree to the terms of use & privacy policy.</p>
-        </div>
+
+        <form className="loginsignup-form" onSubmit={(e) => e.preventDefault()}>
+          <div className="loginsignup-fields">
+            <input type="text" name="name" placeholder="Your Name" />
+            <input type="email" name="email" placeholder="email@xyz.com" />
+            <input type="password" name="password" placeholder="Password" />
+          </div>
+
+          <button type="submit" className="primary-btn">Continue</button>
+
+          <p className="loginsignup-login">
+            Already have an account? <span className="login-link">Login here</span>
+          </p>
+
+          <label className="loginsignup-agree">
+            <input type="checkbox" name="agree" />
+            <span>By continuing, I agree to the terms of use &amp; privacy policy.</span>
+          </label>
+        </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoginSignup
+export default LoginSignup;

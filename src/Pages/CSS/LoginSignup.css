@@ -1,62 +1,146 @@
+:root{
+  --bg: #fce3fe;
+  --card-bg: #ffffff;
+  --muted: #5c5c5c;
+  --accent: #ff4141;
+  --input-border: #d1d1d1;
+  --max-width: 640px;
+}
+
+*{ box-sizing: border-box; }
+
 .loginsignup{
-    width: 100%;
-    height: 80vh;
-    background: #fce3fe;
-    padding-top: 100px;
+  width: 100%;
+  min-height: 80vh;
+  background: var(--bg);
+  padding: 60px 20px;
+  display: flex;
+  align-items: flex-start; /* top aligned like screenshot; use center to center vertically */
+  justify-content: center;
 }
+
+/* Container */
 .loginsignup-container{
-    width: 580px;
-    height: 600px;
-    background-color: white;
-    margin: auto;
-    padding: 40px 60px;
+  width: 100%;
+  max-width: var(--max-width);
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  margin: 0 auto;
+  padding: 36px 40px;
+  box-shadow: 0 8px 30px rgba(15,15,15,0.06);
 }
+
+/* Title */
 .loginsignup-container h1{
-    margin: 20px 0px;
-    font-weight: 500;
+  margin: 4px 0 8px;
+  font-weight: 600;
+  font-size: 32px;
+  color: #111;
 }
+
+/* Form and fields */
+.loginsignup-form{ width: 100%; }
+
 .loginsignup-fields{
-    display: flex;
-    flex-direction: column;
-    gap: 29px;
-    margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 22px;
 }
+
 .loginsignup-fields input{
-    height: 72px;
-    width: 100%;
-    padding-left: 1px solid #c9c9c9;
-    outline: none;
-    color: #5c5c5c;
-    font-size: 18px;
+  height: 60px;
+  width: 100%;
+  padding: 0 18px;
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  outline: none;
+  color: var(--muted);
+  font-size: 16px;
+  transition: box-shadow .12s ease, border-color .12s ease;
+  background: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
 }
-.loginsignup-container button{
-    width: 580px;
-    height: 72px;
-    color: white;
-    background: #ff4141;
-    margin-top: 30px;
-    border: none;
-    font-size: 24px;
-    font-weight: 500;
-    cursor: pointer;
+
+.loginsignup-fields input:focus{
+  border-color: rgba(255,65,65,0.9);
+  box-shadow: 0 6px 18px rgba(255,65,65,0.06);
 }
+
+/* Placeholder styling */
+.loginsignup-fields input::placeholder{
+  color: #9b9b9b;
+  font-size: 15px;
+}
+
+/* Primary button */
+.primary-btn{
+  width: 100%;
+  height: 64px;
+  color: white;
+  background: var(--accent);
+  margin-top: 28px;
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255,65,65,0.12);
+  transition: transform .08s ease, box-shadow .12s ease;
+}
+
+.primary-btn:active{ transform: translateY(1px); }
+.primary-btn:hover{ box-shadow: 0 12px 36px rgba(255,65,65,0.14); }
+
+/* Login text */
 .loginsignup-login{
-    margin-top: 20px;
-    color: #5c5c5c;
-    font-size: 18px;
-    font-weight: 500;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 500;
 }
-.loginsignup-login span{
-    color: #ff4141;
-    font-weight: 600;
-    cursor: pointer;
+
+.login-link{
+  color: var(--accent);
+  font-weight: 700;
+  cursor: pointer;
 }
+
+/* Checkbox row uses label to make it clickable */
 .loginsignup-agree{
-    display: flex;
-    align-items: center;
-    margin-top: 25px;
-    gap: 20px;
-    color: #5c5c5c;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.loginsignup-agree input[type="checkbox"]{
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent); /* modern browsers */
+}
+
+/* Responsive */
+@media (max-width: 700px){
+  .loginsignup-container{
+    padding: 28px 20px;
+    margin: 0 12px;
+  }
+
+  .loginsignup-container h1{
+    font-size: 26px;
+  }
+
+  .primary-btn{
+    height: 60px;
     font-size: 18px;
-    font-weight: 500;
+  }
+
+  .loginsignup-fields input{
+    height: 56px;
+  }
 }
